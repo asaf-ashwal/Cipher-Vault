@@ -1,21 +1,14 @@
 import express from "express";
-// import { createMessageC } from "../controllers/messagesC.js";
-// import auth from "../auth.js";
+import aout from "../midel/aout.js";
+import { createMessageC, getAllMessagesC, readMessageC } from "../controllers/messagesC.js";
 const router = express.Router();
 
 
-// app.post("/test", async (req, res) => {
-//   const message = {
-//     username: "asaf",
-//     encrypted_text: "attack at dawn",
-//     cipher_type: "reverse",
-//   };
+router.post('/encrypt',aout, createMessageC)
+router.post('/decrypt',aout, readMessageC)
 
-//   const result = await insert(message);
-//   res.send(result);
-// });
+router.get('/', aout, getAllMessagesC)
 
 
-// router.post('/',auth,createMessageC)
 
 export default router;

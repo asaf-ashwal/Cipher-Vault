@@ -14,8 +14,16 @@ export async function getUser(username) {
 
 
 export async function aoutDl(username,password) {
-  const result = await connection.collection("users").findOne(username,password);
+  const result = await connection.collection("users").findOne({username,password});
   return result;
 }
 
+export async function userCount(username) {
+    await connection.collection("users").updateOne({username},{$inc:{encryptedMessagesCount:+1}},{new:true});
+}
 
+
+export async function getMe(username) {
+  const result = await connection.collection("users").findOne({username});
+  return result;
+}

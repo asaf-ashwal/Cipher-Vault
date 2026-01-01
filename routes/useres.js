@@ -1,9 +1,10 @@
 import express from "express";
-// import { creatUserC,loginC } from "../controllers/userC.js";
+import aout from "../midel/aout.js";
+import { getMeInfoC } from "../controllers/usersC.js";
+
 const router = express.Router();
 
-// router.post('/register',creatUserC)
-// router.post('/login',loginC)
+router.get('/me', aout, getMeInfoC)
 
 
 

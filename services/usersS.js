@@ -1,7 +1,7 @@
-import { getUser, insertUser } from "../dl/user.js";
+import { getUser, insertUser,getMe } from "../dl/user.js";
 
 export async function crestUserS(username, password) {
-  const isExist = await getUser({username});
+  const isExist = await getUser({ username });
   if (isExist) throw "user alrady exist";
   const newUser = {
     username,
@@ -11,4 +11,12 @@ export async function crestUserS(username, password) {
   };
   const res = await insertUser(newUser);
   return res.insertedId ? { username, id: res.insertedId } : "error";
+}
+
+export async function getMeInfoS(fUsername) {
+  const { username, encryptedMessagesCount } = await getMe(fUsername);
+  return {
+    username,
+    encryptedMessagesCount,
+  };
 }

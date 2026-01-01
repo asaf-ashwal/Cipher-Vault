@@ -1,6 +1,5 @@
 import express from "express";
-import { insert } from "./dl/message.js";
-import { insertUser } from "./dl/user.js";
+import { insertUser, userCount } from "./dl/user.js";
 import { crestUserC } from "./controllers/usersC.js";
 import messageR from "./routes/messages.js";
 import userR from "./routes/useres.js";
@@ -26,6 +25,11 @@ app.post("/test", async (req, res) => {
 });
 
 app.post("/auth/register", crestUserC);
+
+// app.post("/xx", async (req,res)=>{
+//     const resu = await userCount('asaf')
+//     res.send(resu)
+// });
 
 
 app.listen(port, () => {
