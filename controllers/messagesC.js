@@ -1,6 +1,8 @@
-
-
-import { createMessageS,getAllMessagesS,readMessageS } from "../services/messagesS.js";
+import {
+  createMessageS,
+  getAllMessagesS,
+  readMessageS,
+} from "../services/messagesS.js";
 
 export async function createMessageC(req, res) {
   try {

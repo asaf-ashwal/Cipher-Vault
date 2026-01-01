@@ -7,5 +7,4 @@ const router = express.Router();
 router.get('/me', aout, getMeInfoC)
 
 
-
 export default router;

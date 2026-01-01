@@ -1,7 +1,6 @@
 import dbConnection from "../db/mongo.js";
 
 const connection = await dbConnection();
-// const collection =
 
 export async function insertUser(user) {
   const result = await connection.collection("users").insertOne(user);
